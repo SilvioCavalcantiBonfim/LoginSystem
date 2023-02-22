@@ -1,0 +1,195 @@
+.login-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loading{
+    animation: rotate-center 1s infinite linear both;
+}
+.bg{
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    height: 100vh;
+}
+
+.form-container {
+    padding: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.form-container.light{
+    background-color: #ffffff;
+}
+.form-container.dark{
+    background-color: var(--color-2);
+}
+
+h1{
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 64px;
+    line-height: 80px;
+}
+h1.light{
+    color: var(--color-1);
+}
+h1.dark{
+    color: #FFFFFF;
+}
+
+h4 {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 39px;
+}
+
+h4.light{
+    color: var(--color-1);
+}
+h4.dark{
+    color: #FFFFFF;
+}
+
+input[type=email] {
+    margin-top: 36px;
+    margin-bottom: 32px;
+}
+
+.remember {
+    width: 293px;
+    display: flex;
+    justify-content: left;
+    margin-bottom: 24px;
+}
+.theme{
+    position: fixed;
+    left: 36px;
+    bottom: 20px;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    transition: all .3s linear;
+    cursor: pointer;
+}
+.theme:hover{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
+.bt-login {
+    border: none;
+    background-color: var(--color-3);
+    font-family: 'Lexend Deca', sans-serif;
+    width: 300px;
+    height: 45px;
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.bt-login:hover{
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
+.bt-login.light{
+    color: var(--color-1);
+}
+.bt-login.dark{
+    color: #FFFFFF;
+}
+
+input[type=password] {
+    margin-bottom: 23px;
+}
+
+.container {
+    display: block;
+    position: relative;
+    font-family: 'Lexend Deca', sans-serif;
+    line-height: 18px;
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding-left: 25px;
+}
+.container.light{
+    color: var(--color-2);
+}
+.container.dark{
+    color: #FFFFFF;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    border-radius: 5px;
+    background-color: var(--color-1);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+::placeholder {
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 300;
+    color: #FFFFFF;
+}
+
+input[type=email],
+input[type=password] {
+    background-color: var(--color-1);
+    font-family: 'Lexend Deca', sans-serif;
+    border: none;
+    border-radius: 10px;
+    width: 300px;
+    height: 45px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0px 18px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    outline: none;
+}

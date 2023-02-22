@@ -1,2 +1,9 @@
-package com.example.login;public class ApplicationConfigTest {
+package com.example.login;
+
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class ApplicationConfigTest {
 }
