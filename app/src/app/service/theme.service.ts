@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-/*
-0 - dark
-1 - light
-*/
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,5 +21,4 @@ export class ThemeService {
     this.theme = 1 - this.theme;
     localStorage.setItem("theme",String(this.theme));
   }
-
 }

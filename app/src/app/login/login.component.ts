@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import * as shajs from 'sha.js';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
-import { ThemeService } from 'src/app/services/theme.service';
-
+import { ThemeService } from '../service/theme.service';
 
 @Component({
   selector: 'app-login',
