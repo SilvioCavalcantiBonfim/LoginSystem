@@ -3,6 +3,9 @@ package com.example.login.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -29,6 +32,14 @@ public class User {
         }catch (Exception e){
             return false;
         }
+    }
+
+    public Map<String, Object> returnUser(){
+        Map<String,Object> rt = new LinkedHashMap<>();
+        String[] name = {this.firstname, this.lastname};
+        rt.put("name", name);
+        rt.put("email",this.email);
+        return rt;
     }
 
 }

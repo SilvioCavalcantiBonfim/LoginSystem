@@ -4,6 +4,7 @@ import com.example.login.entities.User;
 import com.example.login.repository.UserRepository;
 import com.example.login.tools.Crypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.IllegalBlockSizeException;
@@ -20,6 +21,10 @@ public class UserService implements UserServiceInterface{
         return userRepository.findAll();
     }
 
+    @Override
+    public void save(@NonNull User user){
+        userRepository.save(user);
+    }
     @Override
     public List<String> keyPart(String _key) throws NullPointerException{
         return Arrays.asList(Crypt.decrypt(_key,key).split(":")).subList(0,2);

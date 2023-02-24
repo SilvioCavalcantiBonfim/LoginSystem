@@ -8,13 +8,17 @@
 .loading{
     animation: rotate-center 1s infinite linear both;
 }
-
+.error{
+    border-color: var(--color-error);
+    animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
 .form-container {
     padding: 50px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .form-container.light{
@@ -65,13 +69,22 @@ input[type=email] {
     border: none;
     background-color: var(--color-3);
     font-family: 'Lexend Deca', sans-serif;
-    width: 300px;
     height: 45px;
-    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 16px;
     line-height: 20px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    transition: all .5s linear;
+}
+.bt-login:enabled{
+    width: 300px;
+}
+.bt-login:disabled{
+    width: 45px;
+    border-radius: 50px / 50px;
 }
 .bt-login:hover{
     box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.3);
@@ -155,18 +168,19 @@ input[type=password] {
     color: #FFFFFF;
 }
 
-input[type=email],
-input[type=password] {
-    background-color: var(--color-1);
+input {
     font-family: 'Lexend Deca', sans-serif;
-    border: none;
-    border-radius: 10px;
-    width: 300px;
-    height: 45px;
-    font-size: 14px;
-    line-height: 20px;
-    padding: 0px 18px;
+    font-weight: 200;
+    display: block;
+    width: 100%;
     box-sizing: border-box;
-    color: #FFFFFF;
-    outline: none;
+    padding: 0.875rem 1.125rem;
+    font-size: 16px;
+    line-height: 1;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: 1px solid #c5ccd6;
+}
+input.light::placeholder{
+    color: var(--color-1);
 }

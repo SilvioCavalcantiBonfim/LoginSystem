@@ -3,29 +3,20 @@
       <section [ngClass]="['form-container',['dark','light'][Theme]]">
         <h1 [ngClass]="['dark','light'][Theme]">Sign in</h1>
         <h4 [ngClass]="['dark','light'][Theme]">Sgin in and start managing your test!</h4>
-        <input name="email" placeholder="E-mail" class="error" type="email" [(ngModel)]="email">
-        <input name="password" placeholder="Password" type="password" [(ngModel)]="password">
+        <input name="email" placeholder="E-mail" type="email" [(ngModel)]="email" [ngClass]="[['dark','light'][Theme], error[0]?'error':'']" required>
+        <input name="password" placeholder="Password" type="password" [(ngModel)]="password" [ngClass]="[['dark','light'][Theme], error[1]?'error':'']" required>
         <div class="remember">
           <label [ngClass]="['container',['dark','light'][Theme]]">Remember me
             <input type="checkbox" name="persist" [(ngModel)]="persist">
             <span class="checkmark"></span>
           </label>
         </div>
-        <button [ngClass]="['bt-login',['dark','light'][Theme]]" [disabled]="state !== 0">
+        <button [ngClass]="['bt-login',['dark','light'][Theme],'enable']" [disabled]="state !== 0">
           <span *ngIf="state == 0">Login</span>
           <svg *ngIf="state == 1" class="loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
             height="20">
             <path fill="none" d="M0 0h24v24H0z" />
             <path fill="currentColor" d="M18.364 5.636L16.95 7.05A7 7 0 1 0 19 12h2a9 9 0 1 1-2.636-6.364z" />
-          </svg>
-          <svg *ngIf="state == 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path fill="currentColor"
-              d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z" />
-          </svg>
-          <svg *ngIf="state == 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path fill="currentColor" d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z" />
           </svg>
         </button>
       </section>

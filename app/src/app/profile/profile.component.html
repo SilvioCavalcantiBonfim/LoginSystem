@@ -1,1 +1,60 @@
-<p>profile works!</p>
+<main class="profile-container">
+    <section [ngClass]="['modal-container',['dark','light'][Theme]]">
+        <div [ngClass]="['title-container',['dark','light'][Theme]]">
+            <h3 [ngClass]="['dark','light'][Theme]">Profile</h3>
+            <button [ngClass]="['logout-all',['dark','light'][Theme],]" title="Sign out of all devices">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path fill="currentColor"
+                        d="M3.783 2.826L12 1l8.217 1.826a1 1 0 0 1 .783.976v9.987a6 6 0 0 1-2.672 4.992L12 23l-6.328-4.219A6 6 0 0 1 3 13.79V3.802a1 1 0 0 1 .783-.976zM12 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm-4.473 5h8.946a4.5 4.5 0 0 0-8.946 0z" />
+                </svg>
+            </button>
+        </div>
+        <div class="body-profile">
+            <div class="mult-container">
+                <div>
+                    <label for="fristname" [ngClass]="['dark','light'][Theme]">First name</label>
+                    <input name="firstname" id="firstname" [(ngModel)]="profile.name[0]" type="text" required
+                        [ngClass]="[['dark','light'][Theme],'']">
+                </div>
+                <div>
+                    <label for="lasttname" [ngClass]="['dark','light'][Theme]">Last name</label>
+                    <input name="lastname" id="lastname" [(ngModel)]="profile.name[1]" type="text" required
+                        [ngClass]="['dark','light'][Theme]">
+                </div>
+            </div>
+            <div>
+                <label for="email" [ngClass]="['dark','light'][Theme]">E-mail Address</label>
+                <input type="email" name="email" [value]="profile.email" id="email" [ngClass]="['dark','light'][Theme]"
+                    disabled>
+            </div>
+            <div class="mult-container">
+                <div>
+                    <label for="newpassword" [ngClass]="['dark','light'][Theme]">New password</label>
+                    <input name="newpassword" id="newpassword" type="password" required
+                        [ngClass]="['dark','light'][Theme]">
+                </div>
+                <div>
+                    <label for="repeatpassword" [ngClass]="['dark','light'][Theme]">Repeat new password</label>
+                    <input name="repeatpassword" id="repeatpassword" type="password" required
+                        [ngClass]="['dark','light'][Theme]">
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <button [ngClass]="['save',['dark','light'][Theme]]" (click)="onLogout()">Logout</button>
+            <button [ngClass]="['save',['dark','light'][Theme]]" (click)="onSubmit()" [disabled]="state !== 0">
+                <span *ngIf="state == 0">Save</span>
+                <svg *ngIf="state == 1" class="loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    width="20" height="20">
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path fill="currentColor" d="M18.364 5.636L16.95 7.05A7 7 0 1 0 19 12h2a9 9 0 1 1-2.636-6.364z" />
+                </svg>
+                <svg *ngIf="state == 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path fill="currentColor" d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z" />
+                </svg>
+            </button>
+        </div>
+    </section>
+</main>

@@ -10,6 +10,7 @@ public interface UserServiceInterface {
 
     boolean keyIsValid(String key) throws IllegalFormatException;
 //
+    void save(User user);
     String GenerateKey(User user);
 
     List<String> keyPart(String key);

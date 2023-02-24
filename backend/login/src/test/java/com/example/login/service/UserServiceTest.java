@@ -38,7 +38,6 @@ public class UserServiceTest{
     void UserIsNotNullTest(){
         User user = new User(0L, "nome1", "nome2", "teste@teste.com", "senha", "codigo");
         String Code = userService.GenerateKey(user);
-        System.out.println(Code);
         Assertions.assertEquals(String.class, Code.getClass());
     }
 
@@ -102,6 +101,5 @@ public class UserServiceTest{
         users.add(user);
         return users;
     }
-
 
 }
