@@ -2,7 +2,7 @@
     <section [ngClass]="['modal-container',['dark','light'][Theme]]">
         <div [ngClass]="['title-container',['dark','light'][Theme]]">
             <h3 [ngClass]="['dark','light'][Theme]">Profile</h3>
-            <button [ngClass]="['logout-all',['dark','light'][Theme],]" title="Sign out of all devices">
+            <button [ngClass]="['logout-all',['dark','light'][Theme],]" title="Sign out of all devices" (click)="onRevoke()">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                     <path fill="none" d="M0 0h24v24H0z" />
                     <path fill="currentColor"
@@ -25,18 +25,18 @@
             </div>
             <div>
                 <label for="email" [ngClass]="['dark','light'][Theme]">E-mail Address</label>
-                <input type="email" name="email" [value]="profile.email" id="email" [ngClass]="['dark','light'][Theme]"
-                    disabled>
+                <input type="email" name="email" id="email" [ngClass]="['dark','light'][Theme]"
+                    [(ngModel)]="profile.email">
             </div>
             <div class="mult-container">
                 <div>
                     <label for="newpassword" [ngClass]="['dark','light'][Theme]">New password</label>
-                    <input name="newpassword" id="newpassword" type="password" required
+                    <input name="newpassword" id="newpassword" type="password" required [(ngModel)]="password[0]"
                         [ngClass]="['dark','light'][Theme]">
                 </div>
                 <div>
                     <label for="repeatpassword" [ngClass]="['dark','light'][Theme]">Repeat new password</label>
-                    <input name="repeatpassword" id="repeatpassword" type="password" required
+                    <input name="repeatpassword" id="repeatpassword" type="password" [(ngModel)]="password[1]" required
                         [ngClass]="['dark','light'][Theme]">
                 </div>
             </div>

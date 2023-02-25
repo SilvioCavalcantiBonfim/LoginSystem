@@ -184,3 +184,9 @@ input {
 input.light::placeholder{
     color: var(--color-1);
 }
+input.light{
+    color: var(--color-1);
+}
+input.dark{
+    color: #FFFFFF;
+}

@@ -1,0 +1,1 @@
+docker run --name=loginSystem --env=POSTGRES_PASSWORD=123 --env=LANG=en_US.utf8 --volume=/var/lib/postgresql/data -p 5432 --label='com.docker/featured-image=postgres:latest' --runtime=runc -d postgres:latest

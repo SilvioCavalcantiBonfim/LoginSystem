@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Random;
 
 @Getter
 @Setter
@@ -28,7 +29,7 @@ public class User {
 
     public boolean isPassowrd(String pwd){
         try{
-            return this.password.compareTo(pwd) == 0;
+            return this.password.equals(pwd);
         }catch (Exception e){
             return false;
         }
@@ -42,4 +43,24 @@ public class User {
         return rt;
     }
 
+    public Key GenerateKey(){
+        return new Key(this.id, this.code);
+    }
+
+    public boolean YourKey(String _key){
+        try {
+            Key currentKey = new Key(_key);
+            return this.id.equals(currentKey.getId()) && this.code.equals(currentKey.getCode());
+        }catch (NumberFormatException e){
+            return false;
+        }
+    }
+
+    public boolean YourKey(Key _key){
+        try {
+            return this.id.equals(_key.getId()) && this.code.equals(_key.getCode());
+        }catch (NumberFormatException e){
+            return false;
+        }
+    }
 }

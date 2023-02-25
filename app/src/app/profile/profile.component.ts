@@ -5,6 +5,7 @@ import { interval, Subscription } from 'rxjs';
 import { AuthService } from '../service/auth.service';
 import { KeyService } from '../service/key.service';
 import { ThemeService } from '../service/theme.service';
+import * as shajs from 'sha.js';
 
 interface profileInterface{
   name: string[],
@@ -17,8 +18,9 @@ interface profileInterface{
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit{
-
   profile: profileInterface = {name: ['', ''], email: ''}
+
+  password: string[] = ['',''];
 
   state: number = 0;
 
@@ -31,8 +33,19 @@ export class ProfileComponent implements OnInit{
 
   onSubmit(): void{
     this.state = 1;
+    //update password
+    if(this.password.indexOf('') === -1 && this.password[0] === this.password[1])
+    this.http.put<any>("http://localhost:8080/profile/update/password",{key: this.key.key, password:  shajs('sha256').update(this.password[0]).digest('hex')})
+    .subscribe({
+      error: () => {
+        this.auth.logout();  
+      },
+      complete: ()=> {
+        this.password = ['',''];
+      }
+    })
     //requisição nome
-    this.http.put<any>("http://localhost:8080/profile/update",{key: this.key.key, firstname: this.profile.name[0], lastname: this.profile.name[1]})
+    this.http.put<any>("http://localhost:8080/profile/update",{key: this.key.key, firstname: this.profile.name[0], lastname: this.profile.name[1], email: this.profile.email})
     .subscribe({
       error: () => {
         this.auth.logout();  
@@ -46,6 +59,19 @@ export class ProfileComponent implements OnInit{
         })
       }
     })
+    
+  }
+
+  onRevoke(): void{
+    this.http.put<any>('http://localhost:8080/auth/revoke',{key: this.key.key}).subscribe({
+      error: () => {
+        this.auth.logout();
+      },
+      complete: () => {
+        alert("All keys successfully revoked.");
+        this.auth.logout();
+      }
+    });
   }
 
   onLogout(): void{

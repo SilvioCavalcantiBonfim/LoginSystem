@@ -6,10 +6,12 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Builder
 
 public class UpdateProfile {
     private String key;
     private String firstname;
     private String lastname;
+    private String email;
 }
